@@ -6,9 +6,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description"
-        content="Control High Blood Pressure, let be healthy &nbsp; &nbsp; &nbsp; Hypertension and Research Centre, Rangpur (A sister concern of Dr. Wasim – Waleda Bahumukhi Kallyan Foundaion) Dhap, Jail Road, Rangpur, Phone: +8801730448610 e-mail: htn_rp@yahoo.com Hypertension and Research Centre, Rangpur Table of Contents 1. Preface 2. Establishment 3. Objectives 4. Government Approval 5. Subscription fee 6. &hellip;">
-    <meta name="keywords" content="Hypertension, Research, Rangpur, Hypertension and Research Center, Hypertension and Research Center, Rangpur,">
-    <meta name="author" content="Hypertension and Research Center, Rangpur">
+        content="Centre for Medical Education, Ethics and Research ( CMEER ) is a prominent non-profit, non-political non-governmental national institution which works in medical arena.">
+    <meta name="keywords" content="CMEER, Medical, Education, Ethics, Research">
+    <meta name="author" content="CMEER">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -30,7 +30,7 @@
     <!-- icon -->
     <link rel="icon" href="{{ asset('images/icon.png')}}" type="image/png" sizes="16x16" />
 
-    <title>Hypertension and Research Center, Rangpur</title>
+    <title>Centre for Medical Education, Ethics and Research ( CMEER )</title>
 
 </head>
 
@@ -125,7 +125,7 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <p class="text-white">&copy; 2008 - {{ date("Y") }}
-                            <a class="pl-2 text-white btn-link" href="{{url('/')}}">htncr.com</a>
+                            <a class="pl-2 text-white btn-link" href="{{url('/')}}">CMEER.org</a>
                         </p>
                     </div>
                     <div class="col-sm-6">
