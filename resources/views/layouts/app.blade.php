@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" style="min-height: 100vh;">
+<html lang="en">
 
 <head>
     <!-- Required meta tags -->
