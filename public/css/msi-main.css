@@ -1,0 +1,974 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    display: inline-block;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+ul,
+ol,
+li,
+span {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 400;
+    color: #444;
+    line-height: 1.2;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/*  ==================== Common CSS end ==================== */
+
+
+/* ================= Menu Part Start ================= */
+.main_menu {
+    background: #fff;
+    z-index: 999;
+    height: 80px;
+    padding: 10px 0;
+}
+
+.main_menu .navbar-brand img {
+    height: 60px;
+}
+
+.main_menu .navbar-brand img.mobile-logo {
+    display: none;
+}
+
+.main_menu .navbar-brand .bcs_text {
+    font-family: 'Oswald', sans-serif;
+    color: #222;
+    font-size: 18px;
+    padding-left: 5px;
+    padding-top: 10px;
+    line-height: 25px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.main_menu .navbar-brand .bsos_text {
+    font-family: 'Oswald', sans-serif;
+    color: #222;
+    font-size: 11px;
+    padding-left: 5px;
+    line-height: 20px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.main_menu .navbar-nav .nav-item .nav-link {
+    padding: 0;
+    color: #222;
+    font-size: 16px;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    font-weight: 400;
+    line-height: 40px;
+    margin-left: 20px;
+    position: relative;
+    z-index: 1;
+
+    -webkit-transition: all linear 0.3s;
+    -moz-transition: all linear 0.3s;
+    -ms-transition: all linear 0.3s;
+    -o-transition: all linear 0.3s;
+    transition: all linear 0.3s;
+}
+
+.main_menu .navbar-nav .nav-item .nav-link:hover {
+    color: #44ca75;
+}
+
+.main_menu .navbar-nav .nav-item .nav-link.menu_button {
+    background: #44ca75;
+    color: #fff;
+    padding: 0 20px;
+    border-radius: 20px;
+    border: 2px solid #44ca75;
+    text-transform: capitalize;
+    line-height: 30px;
+}
+
+.main_menu .navbar-nav .nav-item .nav-link.menu_button:hover {
+    background: transparent;
+    color: #44ca75;
+}
+
+/* ================= Menu Part End ================= */
+
+
+/* ================= Banner Part Start ================= */
+#banner_part {
+    background: #f1f1f1;
+    padding: 30px 0;
+    text-align: center;
+}
+
+#log_part {
+    font-size: 16px;
+}
+
+#log_part .form-box {
+    width: 380px;
+    height: 380px;
+    position: relative;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.85);
+    padding: 0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#log_part .button-box {
+    width: 100px;
+    margin: 30px auto;
+    position: relative;
+    -webkit-box-shadow: 0 0 10px 5px #44ca751f;
+    box-shadow: 0 0 10px 5px #44ca751f;
+    border-radius: 30px;
+}
+
+#log_part .toggle-btn {
+    width: 66%;
+    padding: 7px 0;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    color: #44ca75;
+    outline: none;
+    position: relative;
+    text-align: center;
+    font-size: 23px !important;
+    font-weight: bold;
+}
+
+#log_part #btn {
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 110px;
+    height: 100%;
+    border-radius: 30px;
+
+    -webkit-transition: all linear 0.3s;
+    -o-transition: all linear 0.3s;
+    transition: all linear 0.3s;
+}
+
+#log_part .input-group {
+    top: 100px;
+    position: absolute;
+    width: 288px;
+
+    -webkit-transition: all linear 0.3s;
+    -o-transition: all linear 0.3s;
+    transition: all linear 0.3s;
+}
+
+#log_part #register.input-group {
+    top: 75px;
+}
+
+#log_part select.input-field {
+    color: #222;
+    font-size: 16px;
+}
+
+#log_part .input-field {
+    width: 100%;
+    padding: 15px 0;
+    border: 0;
+    border-bottom: 1px solid #999;
+    outline: none;
+    background: transparent;
+}
+
+#log_part #register .input-field {
+    padding: 10px 0;
+}
+
+#log_part .submit-btn {
+    width: 62%;
+    padding: 2px 2px;
+    cursor: pointer;
+    display: block;
+    margin: auto;
+    background: #44ca75;
+    color: #ffffff;
+    border: 0;
+    outline: none;
+    border-radius: 5px;
+    margin-top: 15px;
+}
+
+.account-txt{
+    margin-top: 15px;
+    text-align: center;
+    width: 100%;
+}
+
+#log_part .register-btn{
+    width: 41%;
+    padding: 2px 2px;
+    cursor: pointer;
+    display: block;
+    margin: auto;
+    background: #ffffff;
+    color: #44ca75;
+    border-style: solid;
+    border-width: 1px;
+    outline: none;
+    border-radius: 5px;
+    border-color: #44ca75;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+#log_part .check-box {
+    margin: 10px 10px 0 0;
+}
+
+#log_part span {
+    color: #777;
+    font-size: 12px;
+    margin: 10px 10px 0 0;
+}
+
+#log_part .forgot_text {
+    margin: 5px auto;
+    display: block;
+    text-align: right;
+    color: #777;
+    font-size: 12px;
+    width: 100%;
+}
+
+#log_part #login {
+    left: 50px;
+}
+
+#log_part #register {
+    left: 450px;
+}
+
+#log_part .field-icon {
+    position: relative;
+    left: 260px;
+    top: -7px;
+    font-size: 20px;
+    z-index: 2;
+    color: #777;
+    cursor: pointer;
+}
+
+/* Login Register Responsive */
+@media screen and (max-width: 992px) {
+    #log_part .form-box {
+        margin-bottom: 30px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    #log_part .form-box {
+        width: 340px;
+        margin-bottom: 15px;
+    }
+
+    #log_part .submit-btn {
+        padding: 7px 20px;
+        width: 70%;
+    }
+
+    #log_part .input-group {
+        margin-left: -10px;
+    }
+
+    #log_part .field-icon {
+        top: 0px;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    #log_part .form-box {
+        width: 100%;
+        border-radius: 0;
+        margin-bottom: 15px;
+    }
+
+    #log_part .submit-btn {
+        padding: 7px 10px;
+        width: 70%;
+    }
+
+    #log_part .input-group {
+        width: 260px;
+        margin-left: -20px;
+    }
+
+    #log_part .field-icon {
+        left: 235px;
+        top: 0px;
+    }
+}
+
+
+/* ================= Banner Part End ================= */
+
+
+/* ================= Course Part Start ================= */
+#course_part {
+    padding: 0 0 30px;
+    background: #fff;
+}
+
+#course_part h2 {
+    color: #fff;
+    font-size: 46px;
+    font-weight: 700;
+    font-family: sans-serif;
+    line-height: 160px;
+    background: #44ca75;
+    display: inline;
+    padding: 10px 25px;
+    border-radius: 50px;
+}
+
+#course_part .item .card {
+    background: #fff;
+}
+
+#course_part .item h5 {
+    font-size: 26px;
+    line-height: 50px;
+    font-weight: 700;
+    color: #222;
+}
+
+#course_part .item p {
+    font-size: 22px;
+    color: #22222280;
+    line-height: 60px;
+    text-align: left;
+
+    -webkit-transition: all linear 0.2s;
+    -moz-transition: all linear 0.2s;
+    -ms-transition: all linear 0.2s;
+    -o-transition: all linear 0.2s;
+    transition: all linear 0.2s;
+}
+
+#course_part .item p i {
+    float: right;
+    line-height: 60px;
+}
+
+#course_part .item .card:hover p {
+    color: #222;
+}
+
+/* ================= Course Part End ================= */
+
+
+/* ================= Gallery Part Start ================= */
+#gallery_part {
+    background: #f1f1f1;
+    padding: 0px 0 30px;
+}
+
+#gallery_part .header h2 {
+    color: #fff;
+    font-size: 46px;
+    font-weight: 700;
+    font-family: sans-serif;
+    line-height: 160px;
+    background: #44ca75;
+    display: inline;
+    padding: 10px 25px;
+    border-radius: 50px;
+}
+
+#gallery_part .body .img {
+    position: relative;
+    overflow: hidden;
+}
+
+#gallery_part .body .img .overly {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: #000000a0;
+    transform: scale(0);
+
+    -webkit-transition: all linear 0.3s;
+    -moz-transition: all linear 0.3s;
+    -ms-transition: all linear 0.3s;
+    -o-transition: all linear 0.3s;
+    transition: all linear 0.3s;
+}
+
+#gallery_part .body .img:hover .overly {
+    transform: scale(1);
+}
+
+#gallery_part .body .img .overly a i {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    font-size: 30px;
+    color: #fff;
+    transform: translate(-50%, -50%);
+}
+
+/* ================= Gallery Part End ================= */
+
+
+/* ================= Testimonial Part Start ================= */
+#testimonial_part {
+    background: #fff;
+    padding: 0;
+}
+
+#testimonial_part .header h2 {
+    color: #fff;
+    font-size: 46px;
+    font-weight: 700;
+    font-family: sans-serif;
+    line-height: 160px;
+    background: #44ca75;
+    display: inline;
+    padding: 10px 25px;
+    border-radius: 50px;
+}
+
+#testimonial_part .card {
+    background: #fff;
+    border: 1px solid #ffffff10;
+    border-radius: 10px;
+}
+
+#testimonial_part .card p {
+    color: #222;
+    font-size: 18px;
+    line-height: 24px;
+    padding-left: 5px;
+    /* font-style: italic; */
+}
+
+#testimonial_part .card h5 {
+    color: #222;
+    font-size: 22px;
+    margin-top: 30px;
+}
+
+#testimonial_part .card h6 {
+    color: #222;
+    font-size: 16px;
+}
+
+.testimonial_slider {
+    position: relative;
+    padding-bottom: 30px;
+}
+
+.testimonial_slider .item .img {
+    width: 20%;
+    margin-right: auto;
+    clip-path: circle(50%);
+    margin-bottom: 15px;
+}
+
+.testimonial_slider ul.slick-dots {
+    position: absolute;
+    left: 50%;
+    bottom: 15px;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    justify-content: center;
+
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+.testimonial_slider ul.slick-dots li button {
+    font-size: 0;
+    border: 2px solid #00000044;
+    background: transparent;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    margin: 0 5px;
+    outline: 0;
+    -webkit-transition: all linear 0.3s;
+    -o-transition: all linear 0.3s;
+    transition: all linear 0.3s;
+}
+
+.testimonial_slider ul.slick-dots li button:hover {
+    background: #00000044;
+}
+
+.testimonial_slider ul.slick-dots li.slick-active button {
+    background: #00000088;
+}
+
+/* ================= Testimonial Part End ================= */
+
+
+/* ================= FAQ Part Start ================= */
+#faq_part {
+    background: #f1f1f1;
+    padding: 0px 0 30px;
+}
+
+#faq_part .header h2 {
+    color: #fff;
+    font-size: 46px;
+    font-weight: 700;
+    font-family: sans-serif;
+    line-height: 160px;
+    background: #44ca75;
+    display: inline;
+    padding: 10px 25px;
+    border-radius: 50px;
+}
+
+/*
+.faq_body {
+    overflow: auto;
+    height: 430px;
+}
+*/
+
+.faq_body .card {
+    background: transparent;
+    border: 1px solid #22222240;
+    border-bottom: 1px solid #22222220;
+}
+
+.faq_body .card .card-header {
+    background: transparent;
+    padding: 5px 15px;
+    border: 0;
+}
+
+.faq_body .card .card-body {
+    background: transparent;
+    border: 0;
+    border-top: 1px solid #22222220;
+}
+
+.faq_body .card .card-header a {
+    color: #222;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 2;
+    display: block;
+}
+
+.faq_body .card .card-body a {
+    color: #44ca75;
+    font-size: 16px;
+    text-decoration: underline;
+}
+
+.faq_body .card .card-body ul li,
+.faq_body .card .card-body p {
+    color: #444;
+    font-size: 16px;
+    line-height: 2;
+    padding: 0 30px 5px 60px;
+    /*    text-align: justify;*/
+    position: relative;
+}
+
+.faq_body .card .card-body p::after {
+    content: '';
+    position: absolute;
+    left: 35px;
+    top: 15px;
+    width: 7px;
+    height: 7px;
+    background: #222;
+    border-radius: 50%;
+}
+
+/* ================= FAQ Part End ================= */
+
+
+/* ================= About Part Start ================= */
+
+#about_part {
+    background: #fff;
+    padding: 0px 0 30px;
+}
+
+#about_part .header h2 {
+    color: #fff;
+    font-size: 46px;
+    font-weight: 700;
+    font-family: sans-serif;
+    line-height: 160px;
+    background: #44ca75;
+    display: inline;
+    padding: 10px 25px;
+    border-radius: 50px;
+}
+
+#about_part h4 {
+    color: #222;
+    font-size: 24px;
+    padding: 30px 0 15px;
+}
+
+#about_part a {
+    color: #44ca75;
+    font-size: 18px;
+    text-decoration: underline;
+}
+
+#about_part ul li,
+#about_part p {
+    color: #444;
+    font-size: 18px;
+    line-height: 2;
+    padding: 0 30px 5px 30px;
+    position: relative;
+}
+
+/* ================= About Part End ================= */
+
+
+/* ================= footer, #contact Part Start ================= */
+
+#contact {
+    background: #fff;
+    padding: 0px 0 30px;
+}
+
+#contact .header h2 {
+    color: #fff;
+    font-size: 46px;
+    font-weight: 700;
+    font-family: sans-serif;
+    line-height: 160px;
+    background: #44ca75;
+    display: inline;
+    padding: 10px 25px;
+    border-radius: 50px;
+}
+
+footer, #contact {
+    background: #f1f1f1;
+    text-align: center;
+}
+
+footer h4, #contact h4 {
+    font-size: 20px;
+    text-align: left;
+    text-transform: uppercase;
+    padding-bottom: 15px;
+}
+
+footer .social_link a i, #contact .social_link a i {
+    width: 40px;
+    height: 40px;
+    line-height: 38px;
+    text-align: center;
+    border-radius: 50%;
+    background: #44ca75;
+    color: #fff;
+    border: 2px solid #44ca75;
+    font-size: 22px;
+    margin: 0 5px;
+
+    -webkit-transition: all linear 0.3s;
+    -moz-transition: all linear 0.3s;
+    -ms-transition: all linear 0.3s;
+    -o-transition: all linear 0.3s;
+    transition: all linear 0.3s;
+}
+
+#contact .social_link a i:hover {
+    color: #44ca75;
+    background: #fff;
+    border: 2px solid #44ca75;
+}
+
+#contact p {
+    line-height: 30px;
+    color: #222;
+}
+
+#contact i {
+    font-size: 18px;
+    color: #44ca75;
+}
+
+/* ================= footer, #contact Part End ================= */
+
+
+
+/* ================= Doctors Sidebar Part End ================= */
+
+
+.sidebar {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-color: #44ca7575;
+    /*background-color: #f1f1f1;*/
+    /*position: fixed;*/
+    height: 100%;
+    overflow: auto;
+}
+
+.sidebar a {
+    display: block;
+    color: black;
+    padding: 10px 0 10px 20px;
+    text-decoration: none;
+    border-bottom: 1px #fff solid;
+    font-size: 20px;
+}
+
+.sidebar a.active {
+    background-color: #44ca75;
+    color: white;
+}
+
+.sidebar a:hover:not(.active) {
+    /*background-color: #555;*/
+    background-color: #44ca75;
+    color: Black;
+}
+
+div.content {
+    margin-left: 200px;
+    padding: 1px 16px;
+    height: 1000px;
+}
+
+/* .menu {
+    background-color:Pink;
+    color:Black;
+    border-right:1px #ffffff solid;
+}
+
+.menu:hover {
+    background-color:Orange;
+} */
+
+/*
+@media screen and (max-width: 700px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+    .sidebar a {float: left;}
+    div.content {margin-left: 0;}
+}
+
+@media screen and (max-width: 400px) {
+    .sidebar a {
+        text-align: center;
+        float: none;
+    }
+}
+
+*/
+
+.field-icon {
+    float: right;
+    margin-left: -25px;
+    margin-top: -28px;
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+    padding-right: 5px;
+    font-size: 21px;
+}
+
+.mobile-button {
+    padding-left: 30px;
+    padding-top: 10px;
+}
+
+.mobile-button a {
+    padding-right: 10px;
+}
+
+
+/* ================= Doctors Sidebar Part End ================= */
+
+
+/* ================= Doctors Panel Part End ================= */
+.panel {
+    margin: 30px 0;
+}
+
+.panel .panel-heading {
+    background-color: #44ca75 !important;
+    color: #FFFFFF !important;
+    padding: 8px !important;
+}
+
+.panel .panel-body {
+    padding: 8px !important;
+}
+
+/* ================= Doctors panel Part End ================= */
+
+
+/* ================= For Registration page  ================== */
+.text-center{
+    color: #20ba28;
+}
+.basic-info{
+    margin-bottom: 10px;
+}
+.image,
+.form-control,
+.form-select,
+.careof,
+.village,
+.postoffice,
+.postcode,
+.upazila,
+.district,
+.guardiannumber{
+    width: 100%;
+    text-align: left;
+    margin-top: 5px;
+}
+.applicantid::placeholder {
+    color: red;
+}
+.additional_info,
+.address{
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.save{
+    line-height: 30px;
+    font-size: 14px;
+    color: #ffffff;
+    border: 0;
+    border-radius: 5px;
+    background-color: #20ba28;
+    /* margin-top: 10px; */
+    margin-bottom: 10px;
+    margin-top: 10px;
+    margin-left: 70%;
+    width: 12%;
+    
+}
+
+/* .savenext2{
+    margin-left: 87%;
+    line-height: 20px;
+    font-size: 14px;
+    color: #ffffff;
+    border-radius: 5px;
+    background-color: #20ba28;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 100px;
+
+} */
+.education{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* .save{
+    line-height: 20px;
+    font-size: 14px;
+    color: #ffffff;
+    border: 0;
+    border-radius: 5px;
+    background-color: #20ba28;
+    width: 90px;
+    margin-top: 50px;
+    margin-bottom: 10px;
+    margin-left: -100px;
+    
+} */
+.gender,
+.maritialstatus{
+    margin-top: 5px;
+}
+.birthdate{
+    margin-top: 5px;
+    height: 30px;
+}
+
+.upload{
+    color: red;
+}
+.image{
+    margin-top: 5px;
+}
+.alignment{
+    margin-top: 10px;
+}
+.exam{
+    color: #44ca75;
+    margin-bottom: 5px;
+}
+h4 .optional{
+    color: #1c1d1f;
+    font-size: 16px;
+}
+.address{
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+.profile{
+    margin-top: 15px;
+}
+

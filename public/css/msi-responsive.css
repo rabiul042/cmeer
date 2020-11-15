@@ -1,0 +1,381 @@
+@media (min-width: 1200px) {}
+
+@media (min-width: 992px) and (max-width: 1199px) {}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    /* ================= Menu Part Start ================= */
+
+    .main_menu .navbar-brand .brand_text {
+        font-size: 56px;
+        line-height: 80px;
+    }
+
+    .main_menu button.navbar-toggler {
+        border: 0;
+    }
+
+    .main_menu button:focus {
+        outline: 0;
+        box-shadow: none;
+    }
+
+    .main_menu button.navbar-toggler i {
+        color: #222;
+        height: 45px;
+        width: 45px;
+        text-align: center;
+        line-height: 45px;
+        font-size: 30px;
+    }
+
+    .main_menu .navbar-nav {
+        background: #fff;
+        border-top: 1px solid #22222220;
+        border-bottom: 1px solid #22222220;
+        margin-top: 10px;
+        padding: 5px 0;
+    }
+
+    .main_menu .navbar-nav .nav-item .nav-link {
+        text-align: center;
+        margin-left: 0;
+    }
+
+    .main_menu .navbar-nav .nav-item .nav-link.menu_button {
+        margin-bottom: 10px;
+        max-width: 60%;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 20px;
+    }
+
+    /* ================= Menu Part End ================= */
+
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+
+    /* ================= Menu Part Start ================= */
+
+    .login_hidden {
+        overflow: hidden;
+        height: 70px;
+        transform: translateY(-50px);
+    }
+
+    .main_menu .navbar-brand .brand_text {
+        font-size: 50px;
+        line-height: 80px;
+    }
+
+    .main_menu button.navbar-toggler {
+        border: 0;
+    }
+
+    .main_menu button:focus {
+        outline: 0;
+        box-shadow: none;
+    }
+
+    .main_menu button.navbar-toggler i {
+        color: #222;
+        height: 40px;
+        width: 40px;
+        text-align: center;
+        line-height: 40px;
+        font-size: 30px;
+    }
+
+    .main_menu .navbar-nav {
+        background: #fff;
+        border-top: 1px solid #22222220;
+        border-bottom: 1px solid #22222220;
+        margin-top: 10px;
+        padding: 5px 0;
+    }
+
+    .main_menu .navbar-nav .nav-item .nav-link {
+        text-align: center;
+        margin-left: 0;
+    }
+
+    .main_menu .navbar-nav .nav-item .nav-link.menu_button {
+        margin-bottom: 10px;
+        max-width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 20px;
+    }
+
+    /* ================= Menu Part End ================= */
+
+    /* ================= Banner Part Start ================= */
+
+
+    /* ================= Banner Part End ================= */
+
+    /* ================= Course Part Start ================= */
+    #course_part h2 {
+        font-size: 28px;
+    }
+
+    /* ================= Course Part End ================= */
+
+    /* ================= Gallery Part Start ================= */
+    #gallery_part .header h2 {
+        font-size: 28px;
+    }
+
+    /* ================= Gallery Part End ================= */
+
+    /* ================= Testimonial Part Start ================= */
+    #testimonial_part .header h2 {
+        font-size: 28px;
+    }
+
+    /* ================= Testimonial Part End ================= */
+
+    /* ================= FAQ Part Start ================= */
+    #faq_part .header h2 {
+        font-size: 28px;
+    }
+
+    /*
+    .faq_body {
+        overflow: auto;
+        height: 630px;
+    }
+*/
+
+    .faq_body .card .card-header a {
+        font-size: 18px;
+    }
+
+    .faq_body .card .card-body a {
+        font-size: 16px;
+    }
+
+    .faq_body .card .card-body ul li,
+    .faq_body .card .card-body p {
+        font-size: 16px;
+        padding: 0 5px 5px 20px;
+    }
+
+    .faq_body .card .card-body p::after {
+        left: 5px;
+        top: 10px;
+    }
+
+    #log_part .field-icon {
+        top: -7px;
+    }
+
+    /* ================= FAQ Part End ================= */
+
+    /* ================= About Part End ================= */
+    #about_part .header h2 {
+        font-size: 28px;
+    }
+
+    #about_part ul li,
+    #about_part p {
+        line-height: 1.6;
+        padding: 0 10px 5px 10px;
+    }
+    /* ================= About Part End ================= */
+
+}
+
+@media (max-width: 575px) {
+
+    /* ================= Menu Part Start ================= */
+
+    
+    .main_menu .navbar-brand img.pc-logo {
+        height: 40px;
+        margin: 10px 0;
+    }
+
+    .main_menu .navbar-brand img.mobile-logo {
+        display: none;
+    }
+
+    .main_menu button.navbar-toggler {
+        border: 0;
+    }
+
+    .main_menu button:focus {
+        outline: 0;
+        box-shadow: none;
+    }
+
+    .main_menu button.navbar-toggler i {
+        color: #222;
+        height: 30px;
+        width: 30px;
+        text-align: center;
+        line-height: 30px;
+        font-size: 25px;
+    }
+
+    .main_menu .navbar-nav {
+        background: #fff;
+        border-top: 1px solid #22222220;
+        border-bottom: 1px solid #22222220;
+        margin-top: 10px;
+        padding: 5px 0;
+    }
+
+    .main_menu .navbar-nav .nav-item .nav-link {
+        text-align: center;
+        margin-left: 0;
+    }
+
+    .main_menu .navbar-nav .nav-item .nav-link.menu_button {
+        margin-bottom: 10px;
+        max-width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 20px;
+    }
+
+    /* ================= Menu Part End ================= */
+
+    /* ================= Banner Part Start ================= */
+
+    .login_hidden {
+        overflow: hidden;
+        height: 70px;
+        transform: translateY(-50px);
+    }
+
+    #log_part .form-box {
+        height: 300px;
+    }
+
+    #banner_part {
+        padding-top: 15px;
+    }
+
+    #log_part .button-box {
+        margin: 15px auto;
+    }
+
+    #log_part .input-group {
+        top: 60px;
+    }
+
+    #log_part #register.input-group {
+        top: 55px;
+    }
+
+    #log_part .input-field {
+        padding: 5px 0;
+    }
+
+    #log_part #register .input-field {
+        padding: 5px 0;
+    }
+
+    /* ================= Banner Part End ================= */
+
+    /* ================= Course Part Start ================= */
+    #course_part h2 {
+        font-size: 22px;
+        line-height: 100px;
+        margin-top: -20px;
+    }
+
+    #course_part .item h5 {
+        font-size: 18px;
+        line-height: 25px;
+    }
+
+    #course_part .item p {
+        font-size: 12px;
+        line-height: 20px;
+    }
+
+    #course_part .item p i {
+        float: right;
+        line-height: 20px;
+    }
+
+    /* ================= Course Part End ================= */
+
+    /* ================= Gallery Part Start ================= */
+    #gallery_part .header h2 {
+        font-size: 22px;
+        line-height: 100px;
+        margin-top: -20px;
+    }
+    /* ================= Gallery Part Start ================= */
+
+    /* ================= Testimonial Part Start ================= */
+    #testimonial_part .header h2 {
+        font-size: 22px;
+        line-height: 100px;
+        margin-top: -20px;
+    }
+
+    /* ================= Testimonial Part End ================= */
+
+    /* ================= FAQ Part Start ================= */
+    #faq_part .header h2 {
+        font-size: 22px;
+        line-height: 100px;
+        margin-top: -20px;
+    }
+
+    /*
+    .faq_body {
+        overflow: auto;
+        height: 630px;
+    }
+*/
+
+    .faq_body .card .card-header a {
+        font-size: 16px;
+        font-weight: 500;
+    }
+
+    .faq_body .card .card-body a {
+        font-size: 15px;
+    }
+
+    .faq_body .card .card-body ul li,
+    .faq_body .card .card-body p {
+        font-size: 15px;
+        padding: 0 5px 5px 20px;
+    }
+
+    .faq_body .card .card-body p::after {
+        left: 5px;
+        top: 10px;
+        width: 5px;
+        height: 5px;
+    }
+
+    /* ================= FAQ Part End ================= */
+
+
+    /* ================= About Part Start ================= */
+    #about_part .header h2 {
+        font-size: 22px;
+        line-height: 100px;
+        margin-top: -20px;
+    }
+
+    #about_part a {
+        font-size: 16px;
+    }
+
+    #about_part ul li,
+    #about_part p {
+        font-size: 16px;
+        line-height: 1.6;
+        padding: 0 10px 5px 10px;
+    }
+    /* ================= About Part End ================= */
+
+}
