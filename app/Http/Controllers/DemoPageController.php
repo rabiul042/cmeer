@@ -19,57 +19,63 @@ class DemoPageController extends Controller
     }
     function register_first_step_submit(Request $request){
 
-        //dd($request->toArray());
-
+        $request->validate([
+            'name' => 'required',
+            'bmdc_no' => 'required|unique:doctors',
+            'mobile_number' => 'required|unique:doctors',
+            'email' => 'required|unique:doctors',
+            'password' => 'required|min:6',
+            'medical_college_id' => 'required',
+        ]);
 
         $doctor = new Doctors();
-            $doctor->name = $request->name;
-            $doctor->bmdc_no = $request->bmdc_no;
-            $doctor->mobile_number = $request->mobile_number;
-            $doctor->email = $request->email;
-            $doctor->main_password = $request->password;
-            $doctor->medical_college_id = $request->medical_college_id;
-            $doctor->password = bcrypt($request->password);
-            $doctor->father_name = $request->father_name;
-            $doctor->mother_name = $request->mother_name;
-            $doctor->date_of_birth = $request->date_of_birth;
-            $doctor->gender = $request->gender;
-            $doctor->nid = $request->nid;
-            $doctor->job_description = $request->job_description;
-            $doctor->present_division_id = $request->present_division_id;
-            $doctor->present_district_id = $request->present_district_id;
-            $doctor->present_upazila_id = $request->present_upazila_id;
-            $doctor->present_address = $request->present_address;
-            $doctor->permanent_division_id = $request->permanent_division_id;
-            $doctor->permanent_district_id = $request->permanent_district_id;
-            $doctor->permanent_upazila_id = $request->permanent_upazila_id;
-            $doctor->permanent_address = $request->permanent_address;
+        $doctor->name = $request->name;
+        $doctor->bmdc_no = $request->bmdc_no;
+        $doctor->mobile_number = $request->mobile_number;
+        $doctor->email = $request->email;
+        $doctor->main_password = $request->password;
+        $doctor->medical_college_id = $request->medical_college_id;
+        $doctor->password = bcrypt($request->password);
+        // $doctor->father_name = $request->father_name;
+        // $doctor->mother_name = $request->mother_name;
+        // $doctor->date_of_birth = $request->date_of_birth;
+        // $doctor->gender = $request->gender;
+        // $doctor->nid = $request->nid;
+        // $doctor->job_description = $request->job_description;
+        // $doctor->present_division_id = $request->present_division_id;
+        // $doctor->present_district_id = $request->present_district_id;
+        // $doctor->present_upazila_id = $request->present_upazila_id;
+        // $doctor->present_address = $request->present_address;
+        // $doctor->permanent_division_id = $request->permanent_division_id;
+        // $doctor->permanent_district_id = $request->permanent_district_id;
+        // $doctor->permanent_upazila_id = $request->permanent_upazila_id;
+        // $doctor->permanent_address = $request->permanent_address;
 
-        if ($request->file('image')){
-            $file=$request->file('image');
-            $fileName = md5(uniqid(rand(), true)).'.'.strtolower(pathinfo($file->getClientOriginalName(),PATHINFO_EXTENSION)) ;
-            $destinationPath = 'store/' ;
-            $file->move($destinationPath,$fileName);
-            $doctor->photo = $destinationPath.$fileName;
-        }
+        // if ($request->file('image')){
+        //     $file=$request->file('image');
+        //     $fileName = md5(uniqid(rand(), true)).'.'.strtolower(pathinfo($file->getClientOriginalName(),PATHINFO_EXTENSION)) ;
+        //     $destinationPath = 'store/' ;
+        //     $file->move($destinationPath,$fileName);
+        //     $doctor->photo = $destinationPath.$fileName;
+        // }
 
         $doctor->save();
 
-        foreach($request->exam as $k => $value){
-            if($request->board[$k]==''){
-                continue;
-            }
+        // foreach($request->exam as $k => $value){
+        //     if($request->board[$k]==''){
+        //         continue;
+        //     }
 
-            $doctors_education =new DoctorEducations();
-            $doctors_education->exam = $value;
-            $doctors_education->board = $request->board[$k];
-            $doctors_education->result = $request->result[$k]??'';
-            $doctors_education->passing_year = $request->year[$k]??'';
-            $doctors_education->roll = $request->roll[$k]??'';
-            $doctors_education->duration = $request->duration[$k]??'';
-            $doctors_education->doctor_id = $doctor->id;
-            $doctors_education->save();
-        }
+        //     $doctors_education =new DoctorEducations();
+        //     $doctors_education->exam = $value;
+        //     $doctors_education->board = $request->board[$k];
+        //     $doctors_education->result = $request->result[$k]??'';
+        //     $doctors_education->passing_year = $request->year[$k]??'';
+        //     $doctors_education->roll = $request->roll[$k]??'';
+        //     $doctors_education->duration = $request->duration[$k]??'';
+        //     $doctors_education->doctor_id = $doctor->id;
+        //     $doctors_education->save();
+        // }
 
         Auth::guard('doctor')->loginUsingId($doctor->id);
         return redirect('my-profile');

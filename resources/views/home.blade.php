@@ -50,9 +50,9 @@
                         <div class="button-box">
                             <div id="btn"></div>
                             <button type="button" class="toggle-btn login_register_click" onclick="login()"
-                                action="">Log In</button>
-                            <!-- <button type="button" class="toggle-btn login_register_click" -->
-                                <!-- onclick="register()">Register</button> -->
+                                action="">Login</button>
+                            {{-- <button type="button" class="toggle-btn login_register_click"
+                                onclick="register()">Register</button> --}}
                         </div>
                         <form method="POST" action="{{ route('login') }}" id="login" class="input-group">
                             {{ csrf_field() }}

@@ -644,7 +644,7 @@
 
 <div class="footer">
     <div class="footer-inner">
-        {{ date('Y') }} &copy; BCSBSOS.
+        {{ date('Y') }} &copy; CMEER
     </div>
     <div class="footer-tools">
 		<span class="go-top">
