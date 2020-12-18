@@ -73,6 +73,10 @@ Route::group([ 'middleware'=> 'admin','prefix' => 'admin'], function () {
     Route::get('exam-print-ans/{id}', 'Admin\ExamController@print_ans');
     Route::get('exam-print-onlyans/{id}', 'Admin\ExamController@print_onlyans');
 
+    Route::resource('exam-assign', 'Admin\ExamAssignController');
+    Route::resource('exam-batch', 'Admin\ExamBatchController');
+    Route::post('course-branch-changed-in-exam-batch','Admin\AjaxController@course_branch_changed_in_exam_batch');
+
     Route::get('upload-result/{id}', 'Admin\ExamController@upload_result');
     Route::get('view-result/{id}', 'Admin\ExamController@view_result');
     Route::post('result-submit', 'Admin\ExamController@result_submit');
@@ -242,6 +246,16 @@ Route::get('online-exam', 'OnlineExamController@online_exams');
 Route::get('online-exam/{course_id}/{batch_id}', 'OnlineExamController@online_exam');
 Route::get('doctor-course-online-exam/{id}', 'OnlineExamController@doctor_course_online_exam');
 Route::get('online-exam-details/{id}', 'OnlineExamController@online_exam_details');
+
+Route::get('doctor-course-exam/{doctor_course_id}/{exam_id}', 'ExamController@exam');
+Route::post('/submit-answer', 'AjaxController@submit_answer');
+Route::post('/submit-answer-and-terminate-exam', 'AjaxController@submit_answer_and_terminate_exam');
+Route::post('/skip-question', 'AjaxController@skip_question');
+Route::get('course-exam-result-submit/{doctor_course_id}/{exam_id}', 'ExamController@course_exam_result_submit');
+Route::get('course-exam-result/{doctor_course_id}/{exam_id}', 'ExamController@course_exam_result');
+Route::get('course-exam-doctor-answer/{doctor_course_id}/{exam_id}', 'ExamController@course_exam_doctor_answer');
+Route::get('doctor-batch-exam-reopen/{doctor_course_id}/{exam_id}', 'ExamController@doctor_batch_exam_reopen');
+Route::get('continue-doctor-exam/{doctor_course_id}/{exam_id}', 'ExamController@continue_doctor_exam');
 
 
 Route::get('/', 'HomeController@index')->name('home');

@@ -6,6 +6,7 @@ use App\BatchesSchedules;
 use App\Exam;
 use App\Exam_question;
 
+use App\ExamBatch;
 use App\OnlineLectureAddress;
 use App\OnlineLectureLink;
 use App\OnlineExamCommonCode;
@@ -14,6 +15,7 @@ use App\QuestionTypes;
 use App\Result;
 use App\Role;
 use App\Sessions;
+use App\Subjects;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Doctors;
@@ -94,59 +96,128 @@ class OnlineExamController extends Controller
     }
 
     public function doctor_course_online_exam($doctor_course_id)
-    {        
+    {
         $doc_info = Doctors::where('id', Auth::id())->first();
-        $doctor_courses = DoctorsCourses::where(['id'=>$doctor_course_id,'is_trash'=>'0'])->where('payment_status', '!=' , 'No Payment')->get();
-
+        $doctor_course = DoctorsCourses::where(['id'=>$doctor_course_id,'is_trash'=>'0','status'=>'1'])->where('payment_status', '!=' , 'No Payment')->first();
         $data['doc_info'] = $doc_info;
-        $data['doctor_courses'] = $doctor_courses;
-        $data['doctor_course'] = $doctor_courses[0];
-        $exam_link_ids = array();
-        foreach($doctor_courses as $key=>$doctor_course){
 
-            if(OnlineExamLink::where(['year'=>$doctor_course->year,'session_id'=>$doctor_course->session_id,'online_exam_batch.institute_id'=>$doctor_course->institute_id,'online_exam_batch.course_id'=>$doctor_course->course_id,'batch_id'=>$doctor_course->batch_id])->first()){
-                
-                $exam_link_ids[] = OnlineExamLink::where(['year'=>$doctor_course->year,'session_id'=>$doctor_course->session_id,'online_exam_batch.institute_id'=>$doctor_course->institute_id,'online_exam_batch.course_id'=>$doctor_course->course_id,'batch_id'=>$doctor_course->batch_id])->value('id');
-                
-            }
-            
+        $data['doctor_course'] = $doctor_course;
+
+        $exam_link_ids=array();
+        $exam_batch_link_ids=array();
+
+        if($online_exam_batch = OnlineExamLink::where(['year'=>$doctor_course->year,'session_id'=>$doctor_course->session_id,'online_exam_batch.institute_id'=>$doctor_course->institute_id,'online_exam_batch.course_id'=>$doctor_course->course_id,'batch_id'=>$doctor_course->batch_id])->first()){
+            $online_exam_batch_id = $online_exam_batch->id;
+            $exam_link_ids[] = OnlineExamLink::where(['year'=>$doctor_course->year,'session_id'=>$doctor_course->session_id,'online_exam_batch.institute_id'=>$doctor_course->institute_id,'online_exam_batch.course_id'=>$doctor_course->course_id,'batch_id'=>$doctor_course->batch_id])->value('id');
         }
 
-        //echo "<pre>";print_r($exam_link_ids);exit;
+        if($exam_batch = ExamBatch::where(['year'=>$doctor_course->year,'session_id'=>$doctor_course->session_id,'exam_batch.institute_id'=>$doctor_course->institute_id,'exam_batch.course_id'=>$doctor_course->course_id,'batch_id'=>$doctor_course->batch_id])->first()){
+            $exam_batch_id = $exam_batch->id;
+            $exam_batch_link_ids[] = ExamBatch::where(['year'=>$doctor_course->year,'session_id'=>$doctor_course->session_id,'exam_batch.institute_id'=>$doctor_course->institute_id,'exam_batch.course_id'=>$doctor_course->course_id,'batch_id'=>$doctor_course->batch_id])->value('id');
+        }
 
-        if($doctor_courses[0]->batch->fee_type == "Batch")
+        $exam = 'online_exam';
+
+        $data['batch_type'] = "old";
+
+        if($doctor_course->batch->fee_type == "Batch")
         {
             $online_exam_batch = OnlineExamLink::whereIn('online_exam_batch.id',$exam_link_ids)
-            ->join('online_exam_batch_online_exam','online_exam_batch_online_exam.online_exam_batch_id','online_exam_batch.id')
-            ->join('online_exam','online_exam.id','online_exam_batch_online_exam.online_exam_id')            
-            ->paginate(10); 
+                ->join('online_exam_batch_online_exam','online_exam_batch_online_exam.online_exam_batch_id','online_exam_batch.id')
+                ->join($exam,$exam.'.id','online_exam_batch_online_exam.online_exam_id')
+                ->orderBy('online_exam_batch_online_exam.id','desc')
+                ->paginate(10);
+
+        }else if($doctor_course->batch->fee_type == "Discipline_Or_Faculty") {
+
+            if($doctor_course->institute->type == 1)
+            {
+                $faculty_name = Faculty::where('id',$doctor_course->faculty_id)->value('name');
+                $faculty_ids = Faculty::where('name',$faculty_name)->pluck('id');
+
+                $online_exam_batch = OnlineExamLink::select($exam.'.*')->whereIn('online_exam_batch.id',$exam_link_ids)->whereIn($exam.'_faculties.faculty_id',$faculty_ids)
+                    ->join('online_exam_batch_online_exam','online_exam_batch_online_exam.online_exam_batch_id','online_exam_batch.id')
+                    ->join($exam,$exam.'.id','online_exam_batch_online_exam.online_exam_id')
+                    ->join($exam.'_faculties',$exam.'_faculties.'.$exam.'_id',$exam.'.id')
+                    ->orderBy('online_exam_batch_online_exam.id','desc')
+                    ->paginate(10);
+
+
+
+            } else {
+                $subject_name = Subjects::where('id',$doctor_course->subject_id)->value('name');
+                $subject_ids = Subjects::where('name',$subject_name)->pluck('id');
+
+                $online_exam_batch = OnlineExamLink::select($exam.'.*')->whereIn('online_exam_batch.id',$exam_link_ids)->whereIn($exam.'_discipline.subject_id',$subject_ids)
+                    ->join('online_exam_batch_online_exam','online_exam_batch_online_exam.online_exam_batch_id','online_exam_batch.id')
+                    ->join($exam,$exam.'.id','online_exam_batch_online_exam.online_exam_id')
+                    ->join($exam.'_discipline',$exam.'_discipline.'.$exam.'_id',$exam.'.id')
+                    ->orderBy('online_exam_batch_online_exam.id','desc')
+                    ->paginate(10);
+            }
 
         }
-        else if($doctor_courses[0]->batch->fee_type == "Discipline")
-        {
-            $online_exam_batch = OnlineExamLink::select('online_exam.*')->whereIn('online_exam_batch.id',$exam_link_ids)->where('online_exam_discipline.subject_id',$doctor_courses[0]->subject_id)
-            ->join('online_exam_batch_online_exam','online_exam_batch_online_exam.online_exam_batch_id','online_exam_batch.id')
-            ->join('online_exam','online_exam.id','online_exam_batch_online_exam.online_exam_id')            
-            ->join('online_exam_discipline','online_exam_discipline.online_exam_id','online_exam.id')
-            //->join('batch_discipline_fees','batch_discipline_fees.batch_id','online_exam_batch.batch_id')
-            ->paginate(10);
 
-        }
-        
-        //echo "<pre>";print_r($online_exam_batch);exit;
-
-        
         $data['online_exam_batch'] = $online_exam_batch;
-        
-        $doctor_courses = DoctorsCourses::where(['doctor_id'=>$doc_info->id,'is_trash'=>'0'])->where('payment_status', '!=' , 'No Payment')->get();
-        $doctor_courses_with_exam = array();
-        foreach($doctor_courses as $key=>$doctor_course){ 
 
+
+
+        $exam = 'exam';
+
+        $data['batch_type'] = "new";
+
+        if($doctor_course->batch->fee_type == "Batch")
+        {
+            $exam_batch = ExamBatch::whereIn('exam_batch.id',$exam_batch_link_ids)
+                ->join('exam_batch_exam','exam_batch_exam.exam_batch_id','exam_batch.id')
+                ->join($exam,$exam.'.id','exam_batch_exam.exam_id')
+                ->orderBy('exam_batch_exam.id','desc')
+                ->paginate(10);
+
+        }else if($doctor_course->batch->fee_type == "Discipline_Or_Faculty") {
+
+            if($doctor_course->institute->type == 1)
+            {
+                $faculty_name = Faculty::where('id',$doctor_course->faculty_id)->value('name');
+                $faculty_ids = Faculty::where('name',$faculty_name)->pluck('id');
+
+                $exam_batch = ExamBatch::select($exam.'.*')->whereIn('exam_batch.id',$exam_batch_link_ids)->whereIn($exam.'_faculties.faculty_id',$faculty_ids)
+                    ->join('exam_batch_exam','exam_batch_exam.exam_batch_id','exam_batch.id')
+                    ->join($exam,$exam.'.id','exam_batch_exam.exam_id')
+                    ->join($exam.'_faculties',$exam.'_faculties.'.$exam.'_id',$exam.'.id')
+                    ->orderBy('exam_batch_exam.id','desc')
+                    ->paginate(10);
+
+
+
+            } else {
+                $subject_name = Subjects::where('id',$doctor_course->subject_id)->value('name');
+                $subject_ids = Subjects::where('name',$subject_name)->pluck('id');
+
+                $exam_batch = ExamBatch::select($exam.'.*')->whereIn('exam_batch.id',$exam_batch_link_ids)->whereIn($exam.'_discipline.subject_id',$subject_ids)
+                    ->join('exam_batch_exam','exam_batch_exam.exam_batch_id','exam_batch.id')
+                    ->join($exam,$exam.'.id','exam_batch_exam.exam_id')
+                    ->join($exam.'_discipline',$exam.'_discipline.'.$exam.'_id',$exam.'.id')
+                    ->orderBy('exam_batch_exam.id','desc')
+                    ->paginate(10);
+            }
+
+        }
+
+        $data['exam_batch'] = $exam_batch;
+
+        $doctor_courses = DoctorsCourses::where(['doctor_id'=>$doc_info->id,'is_trash'=>'0','status'=>'1'])->where('payment_status', '!=' , 'No Payment')->get();
+        $doctor_courses_with_exam = array();
+        foreach($doctor_courses as $key=>$doctor_course){
             if(OnlineExamLink::where(['year'=>$doctor_course->year,'session_id'=>$doctor_course->session_id,'online_exam_batch.institute_id'=>$doctor_course->institute_id,'online_exam_batch.course_id'=>$doctor_course->course_id,'batch_id'=>$doctor_course->batch_id])->first()){
                 $doctor_courses_with_exam[] = $doctor_course;
             }
 
+            if(ExamBatch::where(['year'=>$doctor_course->year,'session_id'=>$doctor_course->session_id,'exam_batch.institute_id'=>$doctor_course->institute_id,'exam_batch.course_id'=>$doctor_course->course_id,'batch_id'=>$doctor_course->batch_id])->first()){
+                $doctor_courses_with_exam[] = $doctor_course;
+            }
         }
+
 
         $data['doctor_courses'] = $doctor_courses_with_exam;
 

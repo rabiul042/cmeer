@@ -148,7 +148,7 @@
                     </ul>
                 </li>
                 @endrole
-               
+
 
                 @can('Doctors')
                     <li class="@php echo (Request::segment(2)=='doctors')?'active':''  @endphp">
@@ -170,7 +170,7 @@
                     </li>
                 @endcan
 
-                
+
 
                 @can('Doctors Courses')
                     <li class="@php echo (Request::segment(2)=='doctors-courses' || Request::segment(2)=='doctors-courses-trash' )?'active':''  @endphp">
@@ -196,59 +196,59 @@
                 @endcan
 
                 @can('Batch Schedule')
-                <li class="@php echo (Request::segment(2)=='batches-schedules')?'active':''  @endphp">
-                    <a href="javascript:;">
-                        <i class="fas fa-book"></i><span class="title">Batch Schedules</span><span class="arrow "></span>
-                    </a>
-                    <ul class="sub-menu">
-                        <li class="@php echo (Request::segment(2)=='batches-schedules' && Request::segment(3)=='')?'active':''  @endphp">
-                            <a href="{{url('admin/batches-schedules')}}">Batch Schedules List</a>
-                        </li>
-                        @can('Batch Schedule Add')
-                        <li class="@php echo (Request::segment(2)=='batches-schedules' && Request::segment(3)=='create')?'active':''  @endphp">
-                            <a href="{{ url('admin/batches-schedules/create') }}">Batch Schedules Add</a>
-                        </li>
-                        @endcan
-                    </ul>
-                </li>
+                    <li class="@php echo (Request::segment(2)=='batches-schedules')?'active':''  @endphp">
+                        <a href="javascript:;">
+                            <i class="fas fa-book"></i><span class="title">Batch Schedules</span><span class="arrow "></span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li class="@php echo (Request::segment(2)=='batches-schedules' && Request::segment(3)=='')?'active':''  @endphp">
+                                <a href="{{url('admin/batches-schedules')}}">Batch Schedules List</a>
+                            </li>
+                            @can('Batch Schedule Add')
+                                <li class="@php echo (Request::segment(2)=='batches-schedules' && Request::segment(3)=='create')?'active':''  @endphp">
+                                    <a href="{{ url('admin/batches-schedules/create') }}">Batch Schedules Add</a>
+                                </li>
+                            @endcan
+                        </ul>
+                    </li>
                 @endcan
 
 
                 @can('Settings')
-                <li class="@php echo (Request::segment(2)=='institutes' || Request::segment(2)=='courses' || Request::segment(2)=='sessions' || Request::segment(2)=='faculty' || Request::segment(2)=='subjects' || Request::segment(2)=='batch' || Request::segment(2)=='batch-discipline-fee')?'active':''  @endphp">
-                    <a href="javascript:;">
-                        <i class="fas fa-cogs"></i><span class="title">Settings</span><span class="arrow "></span>
-                    </a>
-                    <ul class="sub-menu">
-                        @can('Institutes')
-                            <li class="@php echo (Request::segment(2)=='institutes')?'active':''  @endphp">
-                                <a href="{{url('admin/institutes')}}"><i class="fas fa-institution"></i>  Institutes </a>
-                            </li>
-                        @endcan
-                        @can('Courses')
-                            <li class="@php echo (Request::segment(2)=='courses')?'active':''  @endphp">
-                                <a href="{{url('admin/courses')}}"><i class="fas fa-institution"></i>  Courses </a>
-                            </li>
-                        @endcan
-                        @can('Courses')
-                            <li class="@php echo (Request::segment(2)=='sessions')?'active':''  @endphp">
-                                <a href="{{url('admin/sessions')}}"><i class="fas fa-institution"></i>  Sessions</a>
-                            </li>
-                        @endcan
-                        @can('Faculty')
-                            <li class="@php echo (Request::segment(2)=='faculty')?'active':''  @endphp">
-                                <a href="{{url('admin/faculty')}}"><i class="fas fa-institution"></i> Faculty</a>
-                            </li>
-                        @endcan
-                        @can('Subject')
-                            <li class="@php echo (Request::segment(2)=='subjects')?'active':''  @endphp">
-                                <a href="{{url('admin/subjects')}}"><i class="fas fa-institution"></i> Discipline</a>
-                            </li>
-                        @endcan
-                        @can('Batch')
-                            <li class="@php echo (Request::segment(2)=='batch')?'active':''  @endphp">
-                                <a href="{{url('admin/batch')}}"><i class="fas fa-institution"></i> Batch </a>
-                            </li>
+                    <li class="@php echo (Request::segment(2)=='institutes' || Request::segment(2)=='courses' || Request::segment(2)=='sessions' || Request::segment(2)=='faculty' || Request::segment(2)=='subjects' || Request::segment(2)=='batch' || Request::segment(2)=='batch-discipline-fee')?'active':''  @endphp">
+                        <a href="javascript:;">
+                            <i class="fas fa-cogs"></i><span class="title">Settings</span><span class="arrow "></span>
+                        </a>
+                        <ul class="sub-menu">
+                            @can('Institutes')
+                                <li class="@php echo (Request::segment(2)=='institutes')?'active':''  @endphp">
+                                    <a href="{{url('admin/institutes')}}"><i class="fas fa-institution"></i>  Institutes </a>
+                                </li>
+                            @endcan
+                            @can('Courses')
+                                <li class="@php echo (Request::segment(2)=='courses')?'active':''  @endphp">
+                                    <a href="{{url('admin/courses')}}"><i class="fas fa-institution"></i>  Courses </a>
+                                </li>
+                            @endcan
+                            @can('Courses')
+                                <li class="@php echo (Request::segment(2)=='sessions')?'active':''  @endphp">
+                                    <a href="{{url('admin/sessions')}}"><i class="fas fa-institution"></i>  Sessions</a>
+                                </li>
+                            @endcan
+                            @can('Faculty')
+                                <li class="@php echo (Request::segment(2)=='faculty')?'active':''  @endphp">
+                                    <a href="{{url('admin/faculty')}}"><i class="fas fa-institution"></i> Faculty</a>
+                                </li>
+                            @endcan
+                            @can('Subject')
+                                <li class="@php echo (Request::segment(2)=='subjects')?'active':''  @endphp">
+                                    <a href="{{url('admin/subjects')}}"><i class="fas fa-institution"></i> Discipline</a>
+                                </li>
+                            @endcan
+                            @can('Batch')
+                                <li class="@php echo (Request::segment(2)=='batch')?'active':''  @endphp">
+                                    <a href="{{url('admin/batch')}}"><i class="fas fa-institution"></i> Batch </a>
+                                </li>
 
                             <!-- <li class="@php echo (Request::segment(2)=='batch')?'active':''  @endphp">
                                 <a href="{{url('admin/print-batch-doctor-address')}}"><i class="fas fa-institution"></i> Print Batch Doctors Address</a>
@@ -259,90 +259,101 @@
                                 <a href="{{url('admin/batch-discipline-fee')}}"><i class="fas fa-institution"></i> Batch Discipline Fee</a>
                         </li> -->
                         <!-- @endcan -->
-                    </ul>
-                </li>
+                        </ul>
+                    </li>
                 @endcan
 
                 @can('Service Package')
-                <li class="@php echo (Request::segment(2)=='service-packages')?'active':''  @endphp">
-                    <a href="javascript:;">
-                        <i class="fas fa-book"></i><span class="title">Service Packages</span><span class="arrow "></span>
-                    </a>
-                    <ul class="sub-menu">
-                        <li class="@php echo (Request::segment(2)=='service-packages' && Request::segment(3)=='')?'active':''  @endphp">
-                            <a href="{{url('admin/service-packages')}}">Service Packages List</a>
-                        </li>
-                        @can('Service Package Add')
-                        <li class="@php echo (Request::segment(2)=='service-packages' && Request::segment(3)=='create')?'active':''  @endphp">
-                            <a href="{{url('admin/service-packages/create')}}">Service Packages Create</a>
-                        </li>
-                        @endcan
-                    </ul>
-                </li>
+                    <li class="@php echo (Request::segment(2)=='service-packages')?'active':''  @endphp">
+                        <a href="javascript:;">
+                            <i class="fas fa-book"></i><span class="title">Service Packages</span><span class="arrow "></span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li class="@php echo (Request::segment(2)=='service-packages' && Request::segment(3)=='')?'active':''  @endphp">
+                                <a href="{{url('admin/service-packages')}}">Service Packages List</a>
+                            </li>
+                            @can('Service Package Add')
+                                <li class="@php echo (Request::segment(2)=='service-packages' && Request::segment(3)=='create')?'active':''  @endphp">
+                                    <a href="{{url('admin/service-packages/create')}}">Service Packages Create</a>
+                                </li>
+                            @endcan
+                        </ul>
+                    </li>
                 @endcan
 
                 @can('Coming By')
-                <li class="@php echo (Request::segment(2)=='coming-by')?'active':''  @endphp">
-                    <a href="javascript:;">
-                        <i class="fas fa-book"></i><span class="title">Coming By</span><span class="arrow "></span>
-                    </a>
-                    <ul class="sub-menu">
-                        <li class="@php echo (Request::segment(2)=='coming-by' && Request::segment(3)=='')?'active':''  @endphp">
-                            <a href="{{url('admin/coming-by')}}">Coming By List</a>
-                        </li>
-                        @can('Coming By Add')
-                        <li class="@php echo (Request::segment(2)=='coming-by' && Request::segment(3)=='create')?'active':''  @endphp">
-                            <a href="{{url('admin/coming-by/create')}}">Coming By Create</a>
-                        </li>
-                        @endcan
-                    </ul>
-                </li>
+                    <li class="@php echo (Request::segment(2)=='coming-by')?'active':''  @endphp">
+                        <a href="javascript:;">
+                            <i class="fas fa-book"></i><span class="title">Coming By</span><span class="arrow "></span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li class="@php echo (Request::segment(2)=='coming-by' && Request::segment(3)=='')?'active':''  @endphp">
+                                <a href="{{url('admin/coming-by')}}">Coming By List</a>
+                            </li>
+                            @can('Coming By Add')
+                                <li class="@php echo (Request::segment(2)=='coming-by' && Request::segment(3)=='create')?'active':''  @endphp">
+                                    <a href="{{url('admin/coming-by/create')}}">Coming By Create</a>
+                                </li>
+                            @endcan
+                        </ul>
+                    </li>
                 @endcan
 
                 @can('Questions')
-                <li class="@php echo (Request::segment(2)=='mcq' || Request::segment(2)=='sba' || Request::segment(2)=='question-types')?'active':''  @endphp">
-                    <a href="javascript:;">
-                        <i class="fas fa-book"></i><span class="title">Questions</span><span class="arrow "></span>
-                    </a>
-                    <ul class="sub-menu">
-                        @can('MCQ Question')
-                        <li class="@php echo (Request::segment(2)=='mcq' && Request::segment(3)=='')?'active':''  @endphp">
-                            <a href="{{url('admin/mcq')}}">MCQ Question List</a>
-                        </li>
-                        @endcan
-                        @can('SBA Question')
-                        <li class="@php echo (Request::segment(2)=='sba' && Request::segment(3)=='')?'active':''  @endphp">
-                            <a href="{{url('admin/sba')}}">SBA Question List</a>
-                        </li>
-                        @endcan
-                        @can('Question Type')
-                        <li class="@php echo (Request::segment(2)=='question-types' && Request::segment(3)=='')?'active':''  @endphp">
-                            <a href="{{url('admin/question-types')}}">Question Type List</a>
-                        </li>
-                        @endcan
-                    </ul>
-                </li>
+                    <li class="@php echo (Request::segment(2)=='mcq' || Request::segment(2)=='sba' || Request::segment(2)=='question-types')?'active':''  @endphp">
+                        <a href="javascript:;">
+                            <i class="fas fa-book"></i><span class="title">Questions</span><span class="arrow "></span>
+                        </a>
+                        <ul class="sub-menu">
+                            @can('MCQ Question')
+                                <li class="@php echo (Request::segment(2)=='mcq' && Request::segment(3)=='')?'active':''  @endphp">
+                                    <a href="{{url('admin/mcq')}}">MCQ Question List</a>
+                                </li>
+                            @endcan
+                            @can('SBA Question')
+                                <li class="@php echo (Request::segment(2)=='sba' && Request::segment(3)=='')?'active':''  @endphp">
+                                    <a href="{{url('admin/sba')}}">SBA Question List</a>
+                                </li>
+                            @endcan
+                            @can('Question Type')
+                                <li class="@php echo (Request::segment(2)=='question-types' && Request::segment(3)=='')?'active':''  @endphp">
+                                    <a href="{{url('admin/question-types')}}">Question Type List</a>
+                                </li>
+                            @endcan
+                        </ul>
+                    </li>
                 @endcan
 
                 @can('Exams')
-                <li class="@php echo (Request::segment(2)=='exam' || Request::segment(2)=='upload-result' || Request::segment(2)=='view-result')?'active':''  @endphp">
-                    <a href="javascript:;">
-                        <i class="fas fa-book"></i><span class="title">Exam</span><span class="arrow "></span>
-                    </a>
-                    <ul class="sub-menu">
-                        <li class="@php echo (Request::segment(2)=='exam' && Request::segment(3)=='')?'active':''  @endphp">
-                            <a href="{{url('admin/exam')}}">Exam List</a>
-                        </li>
-                        @can('Exam Add')
-                        <li class="@php echo (Request::segment(2)=='exam' && Request::segment(3)=='create')?'active':''  @endphp">
-                            <a href="{{ action('Admin\ExamController@create') }}">Exam Add</a>
-                        </li>
-                        @endcan
-                    </ul>
-                </li>
+                    <li class="@php echo (Request::segment(2)=='exam' || Request::segment(2)=='upload-result' || Request::segment(2)=='view-result'|| Request::segment(2)=='exam-batch' ) && ( Request::segment(3)=='' ||  Request::segment(3)=='create' || Request::segment(4)=='edit')?'active':''  @endphp">
+                        <a href="javascript:;">
+                            <i class="fas fa-book"></i><span class="title">Exam</span><span class="arrow "></span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li class="@php echo (Request::segment(2)=='exam' && Request::segment(3)=='')?'active':''  @endphp">
+                                <a href="{{url('admin/exam')}}"><i class="fas fa-institution"></i> Exam List</a>
+                            </li>
+                            @can('Exam Add')
+                                <li class="@php echo (Request::segment(2)=='exam' && Request::segment(3)=='create')?'active':''  @endphp">
+                                    <a href="{{ action('Admin\ExamController@create') }}"><i class="fas fa-institution"></i> Exam Add</a>
+                                </li>
+                            @endcan
+                            {{--@can('Exam Assign')
+                                <li class="@php echo (Request::segment(2)=='exam-assign' && ( Request::segment(3)=='' ||  Request::segment(3)=='create' || Request::segment(4)=='edit'))?'active':''  @endphp">
+                                    <a href="{{url('admin/exam-assign')}}"><i class="fas fa-institution"></i> Exam Assign</a>
+                                </li>
+                            @endcan--}}
+
+                            @can('Exam Batch')
+                                <li class="@php echo ((Request::segment(2)=='exam-batch'  && ( Request::segment(3)=='' ||  Request::segment(3)=='create' || Request::segment(4)=='edit' ))?'active':'' )  @endphp">
+                                    <a href="{{url('admin/exam-batch')}}"><i class="fas fa-institution"></i> Exam Batch</a>
+                                </li>
+                            @endcan
+                        </ul>
+                    </li>
                 @endcan
 
-                <!-- @can('Exam Common Code')
+            <!-- @can('Exam Common Code')
                 <li class="@php echo (Request::segment(2)=='online-exam-common-code')?'active':''  @endphp">
                     <a href="javascript:;">
                         <i class="fas fa-book"></i><span class="title">Exam Common Codes</span><span class="arrow "></span>
@@ -352,16 +363,16 @@
                             <a href="{{url('admin/online-exam-common-code')}}">Exam Common Code List</a>
                         </li>
                         @can('Exam Common Code Add')
-                            <li class="@php echo (Request::segment(2)=='online-exam-common-code' && Request::segment(3)=='create')?'active':''  @endphp">
+                    <li class="@php echo (Request::segment(2)=='online-exam-common-code' && Request::segment(3)=='create')?'active':''  @endphp">
                                 <a href="{{ action('Admin\OnlineExamCommonCodeController@create') }}">Exam Common Code Add</a>
                             </li>
                         @endcan
-                    </ul>
-                </li>
-                @endcan
+                        </ul>
+                    </li>
+@endcan
 
                 @can('Online Exam Links')
-                    <li class="@php echo (Request::segment(2)=='online-exam-link')?'active':''  @endphp">
+                <li class="@php echo (Request::segment(2)=='online-exam-link')?'active':''  @endphp">
                         <a href="javascript:;">
                             <i class="fas fa-book"></i><span class="title">Online Exam Links</span><span class="arrow "></span>
                         </a>
@@ -370,74 +381,74 @@
                                 <a href="{{url('admin/online-exam')}}">Online Exam</a>
                             </li>
                             @can('Online Exam Links Add')
-                                <li class="@php echo (Request::segment(2)=='online-exam-link' && Request::segment(3)=='create')?'active':''  @endphp">
+                    <li class="@php echo (Request::segment(2)=='online-exam-link' && Request::segment(3)=='create')?'active':''  @endphp">
                                     <a href="{{ action('Admin\OnlineExamBatchController@create') }}">Online Exam Link Add</a>
                                 </li>
                             @endcan
                         </ul>
                     </li>
                 @endcan -->
-                
-                <!-- @can('Online Exam Links')
+
+            <!-- @can('Online Exam Links')
                 <li class="@php echo (Request::segment(2)=='online-lecture-address' || Request::segment(2)=='online-lecture-link')?'active':''  @endphp">
                     <a href="javascript:;">
                         <i class="fas fa-cogs"></i><span class="title">Online Lectures</span><span class="arrow "></span>
                     </a>
                     <ul class="sub-menu">
                         @can('Online Exam Links')
-                            <li class="@php echo (Request::segment(2)=='online-lecture-address')?'active':''  @endphp">
+                    <li class="@php echo (Request::segment(2)=='online-lecture-address')?'active':''  @endphp">
                                 <a href="{{url('admin/online-lecture-address')}}"><i class="fas fa-institution"></i>Lecture Address</a>
                             </li>
                         @endcan
-                        @can('Online Exam Links')
-                            <li class="@php echo (Request::segment(2)=='online-lecture-link')?'active':''  @endphp">
+                    @can('Online Exam Links')
+                    <li class="@php echo (Request::segment(2)=='online-lecture-link')?'active':''  @endphp">
                                 <a href="{{url('admin/online-lecture-link')}}"><i class="fas fa-institution"></i>Online Lecture Link </a>
                             </li>
                         @endcan
-                        
-                    </ul>
-                </li>
-                @endcan -->
+
+                        </ul>
+                    </li>
+@endcan -->
 
                 @can('Lecture Video Management')
-                <li class="@php echo (Request::segment(2)=='online-exam' || Request::segment(2)=='online-exam-batch' || Request::segment(2)=='online-exam-link')?'active':''  @endphp">
-                    <a href="javascript:;">
-                        <i class="fas fa-cogs"></i><span class="title">Online Exams</span><span class="arrow "></span>
-                    </a>
-                    <ul class="sub-menu">
-                        @can('Lecture Video')
-                            <li class="@php echo (Request::segment(2)=='online-exam')?'active':''  @endphp">
-                                <a href="{{url('admin/online-exam')}}"><i class="fas fa-institution"></i>Online Exam</a>
-                            </li>
-                        @endcan
-                        @can('Lecture Video Batch')
-                            <li class="@php echo (Request::segment(2)=='online-exam-batch')?'active':''  @endphp">
-                                <a href="{{url('admin/online-exam-batch')}}"><i class="fas fa-institution"></i>Online Exam Batch</a>
-                            </li>
-                        @endcan
-                    </ul>
-                </li>
+                    <li class="@php echo (Request::segment(2)=='online-exam' || Request::segment(2)=='online-exam-batch' || Request::segment(2)=='online-exam-link')?'active':''  @endphp">
+                        <a href="javascript:;">
+                            <i class="fas fa-cogs"></i><span class="title">Online Exams</span><span class="arrow "></span>
+                        </a>
+                        <ul class="sub-menu">
+                            @can('Lecture Video')
+                                <li class="@php echo (Request::segment(2)=='online-exam')?'active':''  @endphp">
+                                    <a href="{{url('admin/online-exam')}}"><i class="fas fa-institution"></i>Online Exam</a>
+                                </li>
+                            @endcan
+                            @can('Lecture Video Batch')
+                                <li class="@php echo (Request::segment(2)=='online-exam-batch')?'active':''  @endphp">
+                                    <a href="{{url('admin/online-exam-batch')}}"><i class="fas fa-institution"></i>Online Exam Batch</a>
+                                </li>
+                            @endcan
+                        </ul>
+                    </li>
                 <!-- @endcan    -->
 
                 @can('Lecture Video Management')
-                <li class="@php echo (Request::segment(2)=='lecture-video' || Request::segment(2)=='lecture-video-batch' || Request::segment(2)=='lecture-video-link')?'active':''  @endphp">
-                    <a href="javascript:;">
-                        <i class="fas fa-cogs"></i><span class="title">Lecture Videos</span><span class="arrow "></span>
-                    </a>
-                    <ul class="sub-menu">
-                        @can('Lecture Video')
-                            <li class="@php echo (Request::segment(2)=='lecture-video')?'active':''  @endphp">
-                                <a href="{{url('admin/lecture-video')}}"><i class="fas fa-institution"></i>Lecture Video</a>
-                            </li>
-                        @endcan
-                        @can('Lecture Video Batch')
-                            <li class="@php echo (Request::segment(2)=='lecture-video-batch')?'active':''  @endphp">
-                                <a href="{{url('admin/lecture-video-batch')}}"><i class="fas fa-institution"></i>Lecture Video Batch</a>
-                            </li>
-                        @endcan                        
-                    </ul>
-                </li>
-                @endcan               
+                    <li class="@php echo (Request::segment(2)=='lecture-video' || Request::segment(2)=='lecture-video-batch' || Request::segment(2)=='lecture-video-link')?'active':''  @endphp">
+                        <a href="javascript:;">
+                            <i class="fas fa-cogs"></i><span class="title">Lecture Videos</span><span class="arrow "></span>
+                        </a>
+                        <ul class="sub-menu">
+                            @can('Lecture Video')
+                                <li class="@php echo (Request::segment(2)=='lecture-video')?'active':''  @endphp">
+                                    <a href="{{url('admin/lecture-video')}}"><i class="fas fa-institution"></i>Lecture Video</a>
+                                </li>
+                            @endcan
+                            @can('Lecture Video Batch')
+                                <li class="@php echo (Request::segment(2)=='lecture-video-batch')?'active':''  @endphp">
+                                    <a href="{{url('admin/lecture-video-batch')}}"><i class="fas fa-institution"></i>Lecture Video Batch</a>
+                                </li>
+                            @endcan
+                        </ul>
+                    </li>
+                @endcan
 
                 {{-- @can('Lecture Sheet Management')
                 <li class="@php echo (Request::segment(2)=='lecture' || Request::segment(2)=='lecture-sheet' || Request::segment(2)=='lecture-sheet-link' )?'active':''  @endphp">
@@ -468,83 +479,83 @@
                                 <a href="{{url('admin/lecture-sheet-link')}}"><i class="fas fa-institution"></i>  Lecture Sheet Link </a>
                             </li>
                         @endcan
-                        
+
                     </ul>
                 </li>
                 @endcan --}}
 
                 @can('Topics')
-                <li class="@php echo (Request::segment(2)=='topic')?'active':''  @endphp">
-                    <a href="javascript:;">
-                        <i class="fas fa-book"></i><span class="title">Class/Chapter</span><span class="arrow "></span>
-                    </a>
-                    <ul class="sub-menu">
-                        <li class="@php echo (Request::segment(2)=='topic' && Request::segment(3)=='')?'active':''  @endphp">
-                            <a href="{{url('admin/topic')}}">Class/Chapter List</a>
-                        </li>
-                        @can('Topic Add')
-                        <li class="@php echo (Request::segment(2)=='topic' && Request::segment(3)=='create')?'active':''  @endphp">
-                            <a href="{{ action('Admin\TopicController@create') }}">Class/Chapter Add</a>
-                        </li>
-                        @endcan
-                    </ul>
-                </li>
+                    <li class="@php echo (Request::segment(2)=='topic')?'active':''  @endphp">
+                        <a href="javascript:;">
+                            <i class="fas fa-book"></i><span class="title">Class/Chapter</span><span class="arrow "></span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li class="@php echo (Request::segment(2)=='topic' && Request::segment(3)=='')?'active':''  @endphp">
+                                <a href="{{url('admin/topic')}}">Class/Chapter List</a>
+                            </li>
+                            @can('Topic Add')
+                                <li class="@php echo (Request::segment(2)=='topic' && Request::segment(3)=='create')?'active':''  @endphp">
+                                    <a href="{{ action('Admin\TopicController@create') }}">Class/Chapter Add</a>
+                                </li>
+                            @endcan
+                        </ul>
+                    </li>
                 @endcan
 
                 @can('Teachers')
-                <li class="@php echo (Request::segment(2)=='teacher')?'active':''  @endphp">
-                    <a href="javascript:;">
-                        <i class="fas fa-book"></i><span class="title">Teacher</span><span class="arrow "></span>
-                    </a>
-                    <ul class="sub-menu">
-                        <li class="@php echo (Request::segment(2)=='teacher' && Request::segment(3)=='')?'active':''  @endphp">
-                            <a href="{{url('admin/teacher')}}">Teacher List</a>
-                        </li>
-                        @can('Teacher Add')
-                        <li class="@php echo (Request::segment(2)=='teacher' && Request::segment(3)=='create')?'active':''  @endphp">
-                            <a href="{{ action('Admin\TeacherController@create') }}">Teacher Add</a>
-                        </li>
-                        @endcan
-                    </ul>
-                </li>
+                    <li class="@php echo (Request::segment(2)=='teacher')?'active':''  @endphp">
+                        <a href="javascript:;">
+                            <i class="fas fa-book"></i><span class="title">Teacher</span><span class="arrow "></span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li class="@php echo (Request::segment(2)=='teacher' && Request::segment(3)=='')?'active':''  @endphp">
+                                <a href="{{url('admin/teacher')}}">Teacher List</a>
+                            </li>
+                            @can('Teacher Add')
+                                <li class="@php echo (Request::segment(2)=='teacher' && Request::segment(3)=='create')?'active':''  @endphp">
+                                    <a href="{{ action('Admin\TeacherController@create') }}">Teacher Add</a>
+                                </li>
+                            @endcan
+                        </ul>
+                    </li>
                 @endcan
 
                 @can('Room')
-                <li class="@php echo (Request::segment(2)=='room')?'active':''  @endphp">
-                    <a href="javascript:;">
-                        <i class="fas fa-book"></i><span class="title">Rooms</span><span class="arrow "></span>
-                    </a>
-                    <ul class="sub-menu">                        
-                        <li class="@php echo (Request::segment(2)=='room' && Request::segment(3)=='')?'active':''  @endphp">
-                            <a href="{{url('admin/room')}}">Room List</a>
-                        </li>                        
-                        @can('Room Add')
-                        <li class="@php echo (Request::segment(2)=='room' && Request::segment(3)=='create')?'active':''  @endphp">
-                            <a href="{{ action('Admin\RoomController@create') }}">Room Add</a>
-                        </li>
-                        @endcan
-                    </ul>
-                </li>
+                    <li class="@php echo (Request::segment(2)=='room')?'active':''  @endphp">
+                        <a href="javascript:;">
+                            <i class="fas fa-book"></i><span class="title">Rooms</span><span class="arrow "></span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li class="@php echo (Request::segment(2)=='room' && Request::segment(3)=='')?'active':''  @endphp">
+                                <a href="{{url('admin/room')}}">Room List</a>
+                            </li>
+                            @can('Room Add')
+                                <li class="@php echo (Request::segment(2)=='room' && Request::segment(3)=='create')?'active':''  @endphp">
+                                    <a href="{{ action('Admin\RoomController@create') }}">Room Add</a>
+                                </li>
+                            @endcan
+                        </ul>
+                    </li>
                 @endcan
 
                 @can('Pages')
-                <li class="@php echo (Request::segment(2)=='page')?'active':''  @endphp">
-                    <a href="javascript:;">
-                        <i class="fas fa-book"></i><span class="title">Pages</span><span class="arrow "></span>
-                    </a>
-                    <ul class="sub-menu">
-                        <li class="@php echo (Request::segment(2)=='page' && Request::segment(3)=='')?'active':''  @endphp">
-                            <a href="{{url('admin/page')}}">Pages List</a>
-                        </li>
-                        @can('Pages Add')
-                            <li class="@php echo (Request::segment(2)=='page' && Request::segment(3)=='create')?'active':''  @endphp">
-                                <a href="{{ action('Admin\PageController@create') }}">Page Add</a>
+                    <li class="@php echo (Request::segment(2)=='page')?'active':''  @endphp">
+                        <a href="javascript:;">
+                            <i class="fas fa-book"></i><span class="title">Pages</span><span class="arrow "></span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li class="@php echo (Request::segment(2)=='page' && Request::segment(3)=='')?'active':''  @endphp">
+                                <a href="{{url('admin/page')}}">Pages List</a>
                             </li>
-                        @endcan
-                    </ul>
-                </li>
+                            @can('Pages Add')
+                                <li class="@php echo (Request::segment(2)=='page' && Request::segment(3)=='create')?'active':''  @endphp">
+                                    <a href="{{ action('Admin\PageController@create') }}">Page Add</a>
+                                </li>
+                            @endcan
+                        </ul>
+                    </li>
                 @endcan
-                
+
 
                 <li class="@php echo (Request::segment(2)=='notice')?'active':''  @endphp">
                     <a href="javascript:;">
@@ -554,10 +565,10 @@
                         <li class="@php echo (Request::segment(2)=='notice' && Request::segment(3)=='')?'active':''  @endphp">
                             <a href="{{url('admin/notice')}}">Notice List</a>
                         </li>
-                        
+
                     </ul>
                 </li>
-                
+
 
                 {{-- @can('Doctor Question')
                 <li class="@php echo (Request::segment(2)=='doctors_quesions')?'active':''  @endphp">
@@ -568,10 +579,10 @@
                         <li class="@php echo (Request::segment(2)=='doctors_quesions' && Request::segment(3)=='')?'active':''  @endphp">
                             <a href="{{url('admin/doctors-questions')}}">Doctors Questions List</a>
                         </li>
-                        
+
                     </ul>
                 </li>
-                @endcan 
+                @endcan
 
                 @can('Doctor Complain')
                 <li class="@php echo (Request::segment(2)=='doctor-complain-list')?'active':''  @endphp">
@@ -582,27 +593,27 @@
                         <li class="@php echo (Request::segment(2)=='doctor-complain-list' && Request::segment(3)=='')?'active':''  @endphp">
                             <a href="{{url('admin/doctor-complain-list')}}">Doctor Complain List</a>
                         </li>
-                        
+
                     </ul>
                 </li>
                 @endcan --}}
 
 
                 @can('Report')
-                <li class="@php echo (Request::segment(2)=='reports')?'active':''  @endphp">
-                    <a href="javascript:;">
-                        <i class="fas fa-book"></i><span class="title">Reports</span><span class="arrow "></span>
-                    </a>
-                    <ul class="sub-menu">
-                        <li class="@php echo (Request::segment(2)=='reports' && Request::segment(3)=='')?'active':''  @endphp">
-                            <a href="{{url('admin/payment')}}">Payment List</a>
-                        </li>
-                        
-                    </ul>
-                </li>
+                    <li class="@php echo (Request::segment(2)=='reports')?'active':''  @endphp">
+                        <a href="javascript:;">
+                            <i class="fas fa-book"></i><span class="title">Reports</span><span class="arrow "></span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li class="@php echo (Request::segment(2)=='reports' && Request::segment(3)=='')?'active':''  @endphp">
+                                <a href="{{url('admin/payment')}}">Payment List</a>
+                            </li>
+
+                        </ul>
+                    </li>
                 @endcan
 
-                
+
             </ul>
             <!-- END SIDEBAR MENU -->
         </div>
@@ -644,7 +655,7 @@
 
 <div class="footer">
     <div class="footer-inner">
-        {{ date('Y') }} &copy; CMEER
+        {{ date('Y') }} &copy; BCSBSOS.
     </div>
     <div class="footer-tools">
 		<span class="go-top">
