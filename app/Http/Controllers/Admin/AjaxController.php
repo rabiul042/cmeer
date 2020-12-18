@@ -27,6 +27,7 @@ use App\Courses;
 use App\Faculty;
 use App\QuestionTypes;
 use App\Notices;
+use App\Exam;
 
 use Illuminate\Http\Request;
 
@@ -843,7 +844,38 @@ class AjaxController extends Controller
         return view('admin.ajax.question_info', $data);
     }
 
+    public function course_branch_changed_in_exam_batch(Request $request)
+    {
+        $branch_id = $request->branch_id;
+        $institute_id = $request->institute_id;
+        $course_id = $request->course_id;
 
+        $institute_type = Institutes::where('id',$institute_id)->first()->type;
+        if($institute_type)
+        {
+            $faculties = Faculty::where(['institute_id'=>$institute_id,'course_id'=>$course_id])->pluck('name', 'id');
+
+            $online_exams = Exam::where(['institute_id'=>$institute_id,'course_id'=>$course_id,'sif_only'=>'No'])->pluck('name', 'id');
+
+            $batches = Batches::where(['institute_id'=>$institute_id,'course_id'=>$course_id,'branch_id'=>$branch_id])->where('course_id',$course_id)->pluck('name', 'id');
+
+            return  json_encode(array('faculties'=>view('admin.ajax.faculties',['faculties'=>$faculties])->render(),'online_exams'=>view('admin.ajax.exams',['online_exams'=>$online_exams])->render(),'batches'=>view('admin.ajax.courses_batches',['batches'=>$batches])->render(),), JSON_FORCE_OBJECT);
+
+        }
+        else
+        {
+            $subjects = Subjects::where(['institute_id'=>$institute_id,'course_id'=>$course_id])->pluck('name', 'id');
+            
+            $online_exams = Exam::where(['institute_id'=>$institute_id,'course_id'=>$course_id,'sif_only'=>'No'])->pluck('name', 'id');
+
+            $batches = Batches::where(['institute_id'=>$institute_id,'course_id'=>$course_id,'branch_id'=>$branch_id])->where('course_id',$course_id)->pluck('name', 'id');
+
+            return  json_encode(array('subjects'=>view('admin.ajax.subjects',['subjects'=>$subjects])->render(),'online_exams'=>view('admin.ajax.exams',['online_exams'=>$online_exams])->render(),'batches'=>view('admin.ajax.courses_batches',['batches'=>$batches])->render(),), JSON_FORCE_OBJECT);
+
+
+        }
+
+    }
 
 } 
 

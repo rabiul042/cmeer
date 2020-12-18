@@ -41,7 +41,7 @@
                             <th>SBA Mark</th>
                             <th>SBA Negative Mark</th>
                             <th>Full Mark</th>
-                            <th>Duration</th>
+                            <th>Duration ( In Minutes )</th>
                             <th>Paper or Faculty</th>
                             <th>Actions</th>
                         </tr>
@@ -59,7 +59,7 @@
                                 <td>{{ $question->sba_mark }}</td>
                                 <td>{{ $question->sba_negative_mark }}</td>
                                 <td>{{ $question->full_mark }}</td>
-                                <td>{{ $question->duration }}</td>
+                                <td>{{ $question->duration/60 }}</td>
                                 <td>{{ $question->paper_faculty }}</td>
                                 <td>
                                 

@@ -38,5 +38,10 @@ class Exam extends Model
         return $this->belongsTo('App\QuestionTypes','question_type_id', 'id');
     }
 
+    public function exam_questions()
+    {
+        return $this->hasMany('App\Exam_question','exam_id', 'id');
+    }
+
 
 }

@@ -110,10 +110,10 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-2 control-label">Duration (<i class="fa fa-asterisk ipd-star" style="font-size:11px;"></i>) </label>
+                            <label class="col-md-2 control-label">Duration ( In Minutes ) (<i class="fa fa-asterisk ipd-star" style="font-size:11px;"></i>) </label>
                             <div class="col-md-4">
                                 <div class="input-icon right">
-                                    <input type="number" name="duration" required value="{{ $type_info->duration }}" class="form-control">
+                                    <input type="number" name="duration" required value="{{ $duration }}" class="form-control">
                                 </div>
                             </div>
                         </div>

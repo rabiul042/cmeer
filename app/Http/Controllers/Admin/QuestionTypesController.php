@@ -114,7 +114,7 @@ class QuestionTypesController  extends Controller
             $sba = $request->sba_number*$request->sba_mark;
             $question_type->full_mark = $mcq+$sba;
             $question_type->pass_mark = $request->pass_mark;
-            $question_type->duration = $request->duration;
+            $question_type->duration = $request->duration*60;
             $question_type->paper_faculty = $request->paper_faculty;
             $question_type->status = 1;
             $question_type->save();
@@ -155,6 +155,7 @@ class QuestionTypesController  extends Controller
          }*/
 
         $data['type_info'] = QuestionTypes::find($id);
+        $data['duration'] = $data['type_info']->duration/60;
         $data['title'] = "Edit Question Type";
         return view('admin.question_types.edit', $data);
     }
@@ -199,7 +200,7 @@ class QuestionTypesController  extends Controller
         $sba = $request->sba_number*$request->sba_mark;
         $question_type->full_mark = $mcq+$sba;
         $question_type->pass_mark = $request->pass_mark;
-        $question_type->duration = $request->duration;
+        $question_type->duration = $request->duration*60;
         $question_type->paper_faculty = $request->paper_faculty;
 
         

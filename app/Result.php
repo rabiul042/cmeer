@@ -7,7 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 class Result extends Model
 {
 
+    protected $table = 'results';
+    public $timestamps = false;
+
     public function doctor_courses()
+    {
+        return $this->belongsTo('App\DoctorsCourses','doctor_course_id', 'id');
+    }
+
+    public function doctor_course()
     {
         return $this->belongsTo('App\DoctorsCourses','doctor_course_id', 'id');
     }
